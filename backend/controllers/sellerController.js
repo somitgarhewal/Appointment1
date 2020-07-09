@@ -17,7 +17,7 @@ const sellerController = {
 
    loginSeller : async (req, res) => {
       try{
-      const data= await seller.findOne({ 'username': req.params.username, 'password': req.params.password })
+      const data= await seller.findOne({ userName: req.body.username, password: req.body.password })
       res.send({person: data})
       }
       catch(error){

@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './mainComponents/index'
 import SearchCard from './mainComponents/searchCard';
 import LoginPage from './mainComponents/loginPage'
+import SellerHomePage from './mainComponents/sellerHomePage'
 
 const AppRoutes = () => { 
   return (
@@ -10,6 +11,7 @@ const AppRoutes = () => {
       <Route path="/home" component={Home} exact/>
       <Route path="/searchSeller/:name" component={SearchCard} />
       <Route path="/loginPage" component={LoginPage} />
+      <Route path="/sellerHomePage" component={ SellerHomePage } />
     </Switch>
   )
 }

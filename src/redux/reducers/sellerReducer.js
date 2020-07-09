@@ -2,8 +2,7 @@ import { GET_ALL_SELLER, LOGIN_SELLER } from '../types'
  
 const initialState = {
         activeUser: null,
-        data: [],
-        searchText: null    
+        data: []  
         }
         
     
@@ -15,8 +14,8 @@ const initialState = {
             ...state
           }
           case LOGIN_SELLER :
-            state.data=action.payload
-            state.activeUser = action.payload.name
+            state.activeUser = action.payload.person
+            action.payload.person ? state.success=true : state.success=false
             return{
               ...state
             }
