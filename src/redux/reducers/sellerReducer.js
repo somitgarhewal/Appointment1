@@ -1,7 +1,7 @@
-import { GET_ALL_SELLER, LOGIN_SELLER } from '../types'
+import { GET_ALL_SELLER, LOGIN_SELLER, LOGOUT_SELLER } from '../types'
  
 const initialState = {
-        activeUser: null,
+        activeUser: "none",
         data: []  
         }
         
@@ -9,16 +9,22 @@ const initialState = {
   const  sellerReducer  = (state = initialState, action) => {
         switch(action.type){ 
           case GET_ALL_SELLER :
-            state.data=action.payload
            return{
-            ...state
+            ...state,
+            data: action.payload
           }
+
           case LOGIN_SELLER :
-            state.activeUser = action.payload.person
-            action.payload.person ? state.success=true : state.success=false
             return{
-              ...state
+              ...state,
+            activeUser : action.payload.person
             }
+
+          case LOGOUT_SELLER:
+            return{
+              ...state,
+              activeUser:"none"
+            }  
           default: return state
         }
      
